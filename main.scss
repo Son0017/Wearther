@@ -27,6 +27,7 @@ ul {
   list-style: none;
 }
 li {
+  padding-bottom: 20px;
   background-color: aliceblue;
   // position: relative;
   margin-bottom: 15px;
@@ -54,7 +55,6 @@ li {
   }
 }
 .squere {
-  padding-bottom: 20px;
   .squereTitle {
     font-size: 35px;
     margin-bottom: 10px;
@@ -74,6 +74,9 @@ li {
 .descP {
   font-size: 25px;
   margin-bottom: 15px;
+}
+.red {
+  color: red;
 }
 form {
   display: flex;

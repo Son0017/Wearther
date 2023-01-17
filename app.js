@@ -10,13 +10,17 @@ formEl.addEventListener("submit", (el) => {
   yourCity = formEl.input.value;
   if (yourCity.trim().length > 0) {
     list.classList.remove("hidden");
-    getData(`https://api.openweathermap.org/data/2.5/weather`, yourCity).then(
-      (data) => {
+    getData(`https://api.openweathermap.org/data/2.5/weather`, yourCity)
+      .then((data) => {
         addList(data);
         console.log(data.weather.description);
         console.log(data.weather);
-      }
-    );
+      })
+      .catch(() => {
+        list.innerHTML = `
+        <h1 class="red">Try another right one !!!! </h1>
+      `;
+      });
   }
   formEl.reset();
 });
@@ -29,11 +33,7 @@ let getData = async function (resourse, city) {
   await overly.classList.add("hidden");
 
   return (await response).json();
-}.catch(() => {
-  list.innerHTML = `
-    <h1>Try another right one </h1>
-  `;
-});
+};
 function addList(data) {
   console.log(1);
   list.innerHTML = `
