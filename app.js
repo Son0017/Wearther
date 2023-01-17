@@ -29,7 +29,11 @@ let getData = async function (resourse, city) {
   await overly.classList.add("hidden");
 
   return (await response).json();
-};
+}.catch(() => {
+  list.innerHTML = `
+    <h1>Try another right one </h1>
+  `;
+});
 function addList(data) {
   console.log(1);
   list.innerHTML = `
